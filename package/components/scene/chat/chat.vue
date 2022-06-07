@@ -45,7 +45,7 @@ export interface ChatProps {
     chatID: string,
     send : ( p:{ chatID: string, message: string } ) => Promise< { done: boolean } >
     receive ?: ( p: { chatID: string } ) => Promise< ChatMessage[] >
-
+    initMes ?: Array<ChatMessage> 
     // default is false
     // update your send-message when server notify you send-done
     updateAfterSendDone ?: boolean;
@@ -57,7 +57,7 @@ export type ChatMessage = {
 const props = withDefaults(defineProps<ChatProps>(), {});
 
 const DEFAULT_ASK_TIME_DURATION = 3000;
-const messageRecords = ref< Array< ChatMessage > >( [] );
+const messageRecords = ref< Array< ChatMessage > >(  props.initMes || [] );
 const inputed = ref( "" );
 
 const scrollRef = ref(null);

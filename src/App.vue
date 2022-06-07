@@ -74,7 +74,10 @@ watch( checkLabels, () => {
 }, { deep: true });
 
 const onMessage = (type: string) => {
-  message({type: type as SceneMessageStyleType, text: "成功", showCloseButton: true, "duration": 5000 });
+  message({type: "success", text: "done!", showCloseButton: true, "duration": 5000 });
+  message({type: "info", text: "in-loading", showCloseButton: true, "duration": 5000 });
+  message({type: "warning", text: "drop-cash", showCloseButton: true, "duration": 5000 });
+  message({type: "error", text: "rejected", showCloseButton: true, "duration": 5000 });
 }
 
 const card1 = ref<HTMLElement>()
@@ -338,7 +341,8 @@ const githubObj = {
     <s-chat 
     :chatID="fakeChatID"
     :send="fakeChatSend"
-    :receive="fakeChatRecv">
+    :receive="fakeChatRecv"
+    :initMes="[{ isMe: false, content: 'dog' } ]">
     </s-chat>
   </div>
 

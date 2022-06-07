@@ -3,7 +3,7 @@ export interface ChatProps {
     chatID: string,
     send : ( p:{ chatID: string, message: string } ) => Promise< { done: boolean } >
     receive ?: ( p: { chatID: string } ) => Promise< ChatMessage >
-
+    initMes ?: Array<ChatMessage> 
     // default is false
     // update your send-message when server notify you send-done
     updateAfterSendDone ?: boolean;
